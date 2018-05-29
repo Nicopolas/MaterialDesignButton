@@ -19,29 +19,11 @@
             app:fabSize="normal" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <FrameLayout
         android:id="@+id/scene_root"
-        android:orientation="vertical"
-        android:gravity="center_vertical|left">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="34dp"
-            android:layout_height="2dp"
-            android:background="#000000"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#ffff"
-            android:id="@+id/textView"
-            android:elevation="8dp"
-            android:text="T"
-            android:textSize="42dp"
-            android:textStyle="bold"/>
-        <LinearLayout
-            android:layout_width="34dp"
-            android:layout_height="2dp"
-            android:background="#000000"/>
-    </LinearLayout>
+        <include layout="@layout/scene2" />
+    </FrameLayout>
 </RelativeLayout>
