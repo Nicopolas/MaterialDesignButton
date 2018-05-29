@@ -1,6 +1,5 @@
 package zakharov.nikolay.com.materialdesignbutton;
 
-import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -37,10 +36,9 @@ public class MainActivity extends AppCompatActivity {
         initGUI();
     }
 
-    @SuppressLint("ClickableViewAccessibility")
     private void initGUI() {
         mTextView = findViewById(R.id.textView);
-        mTextView.setOnClickListener(new View.OnClickListener() {
+/*        mTextView.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
@@ -53,14 +51,29 @@ public class MainActivity extends AppCompatActivity {
                     beginAutoTransition(scene1, 200);
                 }
             }
-        });
+        });*/
 
         fabButton = findViewById(R.id.fab);
+        setListener();
+    }
+
+    private void setListener() {
         fabButton.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
                 fabButton.setElevation(20);
+            }
+        });
+        mTextView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                while (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    beginAutoTransition(scene1, 200);
+                    return true;
+                }
+                beginAutoTransition(scene2, 200);
+                return true;
             }
         });
     }
